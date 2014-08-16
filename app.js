@@ -22,10 +22,30 @@ function postsSuccess(odp){
     }
 }
 
-$(document).ready(function(){
-  if(localStorage.getItem('tokenWbazie')){
-   zapytajOPosty(localStorage.getItem('tokenWbazie'), postsSuccess);
+var token = $.Deferred(),
+      posts = $.Deferred();
+
+if(localStorage.getItem('tokenWbazie')){
+
+   token.resolve(localStorage.getItem('tokenWbazie'));
+
+}else{
+      token = $.get(adres);
+}
+
+token.then(function(jakisToken){
+ 
+  console.log(jakisToken);
+
+  if(jakisToken.search("=")===-1){
+
   }else{
-      $.get(adres, tokenSucces);
+    return 'dupa';
   }
+
 });
+
+posts.done(function(posts){
+  console.log(posts);
+});
+
