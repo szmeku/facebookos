@@ -1,4 +1,5 @@
-var adres = "https://graph.facebook.com/oauth/access_token?client_id=561452133960172&client_secret=385ca5f31a8dc1c6edb11e217ebbddc3&grant_type=client_credentials";
+<script type="text/javascript" src="config.js"></script>
+var adres = "https://graph.facebook.com/oauth/access_token?client_id=561452133960172&client_secret="+secret;
 
 function tokenSucces(odpowiedz){
   var token = odpowiedz.split('=')[1];
