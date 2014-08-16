@@ -22,30 +22,27 @@ function postsSuccess(odp){
     }
 }
 
-var token = $.Deferred(),
+var surowyToken = $.Deferred(),
       posts = $.Deferred();
 
 if(localStorage.getItem('tokenWbazie')){
-
-   token.resolve(localStorage.getItem('tokenWbazie'));
-
+  surowyToken.resolve(localStorage.getItem('tokenWbazie'));
 }else{
-      token = $.get(adres);
+  surowyToken = $.get(adres);
 }
+// przerabiany surowy token (czyli nie wiem czy dobry) na taki jak potrzebujemy
+var token = surowyToken.then(function(surowyToken){
 
-token.then(function(jakisToken){
- 
-  console.log(jakisToken);
-
-  if(jakisToken.search("=")===-1){
-
+  if(surowyToken.search("=")===-1){
+    return surowyToken;
   }else{
-    return 'dupa';
+    return surowyToken.split('=')[1];
   }
 
 });
 
-posts.done(function(posts){
-  console.log(posts);
+
+token.done(function(doberyTokenix){
+  console.log(doberyTokenix);
 });
 
