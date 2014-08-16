@@ -1,4 +1,4 @@
-<script type="text/javascript" src="config.js"></script>
+
 var adres = "https://graph.facebook.com/oauth/access_token?client_id=561452133960172&client_secret="+secret;
 
 function tokenSucces(odpowiedz){
