@@ -1,0 +1,7 @@
+{
+  "name": "facebookos",
+  "version": "0.0.0",
+  "dependencies": {
+    "xdomain": "~0.6.12"
+  }
+}

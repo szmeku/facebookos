@@ -1,1 +1,0 @@
-var secret = "385ca5f31a8dc1c6edb11e217ebbddc3&grant_type=client_credentials";

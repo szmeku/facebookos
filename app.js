@@ -1,5 +1,5 @@
 
-var adres = "https://graph.facebook.com/oauth/access_token?client_id=561452133960172&client_secret="+secret;
+var adres = "https://graph.facebook.com/oauth/access_token?client_id=561452133960172&grant_type=client_credentials&client_secret="+secret;
 
 function tokenSucces(odpowiedz){
   var token = odpowiedz.split('=')[1];
@@ -22,8 +22,10 @@ function postsSuccess(odp){
     }
 }
 
-if(localStorage.getItem('tokenWbazie')){
+$(document).ready(function(){
+  if(localStorage.getItem('tokenWbazie')){
    zapytajOPosty(localStorage.getItem('tokenWbazie'), postsSuccess);
-}else{
-    $.get(adres, tokenSucces);
-}
+  }else{
+      $.get(adres, tokenSucces);
+  }
+});
